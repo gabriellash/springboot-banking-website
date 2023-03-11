@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Homepage</title>
+<link rel="stylesheet" href="/css/main.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+     <script src=
+"https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+     <script type="text/javascript">
+     $(document).ready(function(){
+     $(".buyservice").click(function() {
+    	    var $row = $(this).closest("tr");    // Find the row
+    	   var $text = $row.find(".name").text(); // Find the text
+    	    $.cookie("thename", $text);
+    	   // alert( $.cookie("thename") );
+    	    // Let's test it out
+    	//   alert($text);
+    	});
+     });
+    // function setcookie(){
+    	// var 
+    	 //var servicename = $(this).closest("tr").document.getElementById("name").innerHTML;
+    	 //document.cookie = "name="+ servicename;
+     //}
+     </script>
+</head>
+
+<body>
+<div th:replace="./fragments/navbar-user"></div>
+</br>
+<h1 class="m-5"> Welcome <span th:text="${firstname}" /> </span> to your digital wallet </h1>
+		
+		<div class=" flex items-center  justify-between p-4  rounded-lg bg-white shadow-indigo-50 shadow-md m-5">
+          <div>
+            <h2 class="text-gray-900 text-lg font-bold">My Money:</h2>
+            
+            <h2 class="text-gray-900 text-lg font-bold" th:text=" ${dollar} + '$' "></h2>  <h2 class="text-gray-900 text-lg font-bold" th:text=" ${bitcoin} + 'BTC' "></h2>
+            <a th:href="@{/topup}"> <button class="text-sm mt-6 px-4 py-2 bg-yellow-400 text-white rounded-lg  tracking-wider hover:bg-yellow-300 outline-none">Top up my account</button></a>
+             <a th:href="@{/buycrypto}"> <button class="text-sm mt-6 px-4 py-2 bg-yellow-400 text-white rounded-lg  tracking-wider hover:bg-yellow-300 outline-none">Buy Bitcoins</button></a>
+              <a th:href="@{/sellcrypto}"> <button class="text-sm mt-6 px-4 py-2 bg-yellow-400 text-white rounded-lg  tracking-wider hover:bg-yellow-300 outline-none">Sell Bitcoins</button></a>
+          </div>
+          <div
+            class="bg-gradient-to-tr from-yellow-500 to-yellow-400  w-32 h-32  rounded-full shadow-2xl shadow-yellow-400 border-white  border-dashed border-2  flex justify-center items-center ">
+            <div>
+              	<i class="fa-solid fa-3x fa-money-check-dollar"></i>
+            </div>
+          </div>
+          </br>
+          
+       </div>
+        <form th:action="@{/services}" required class=" p-4">   
+			    <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+			    <div class="relative">
+			        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+			            <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+			        </div>
+			        <input th:value="${keyword}" type="search" id="keyword" name="keyword" class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-yellow-500 focus:border-yellow-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search service..." required>
+			        <button type="submit" class="text-white absolute right-2.5 bottom-2.5 bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800">Search</button>
+			    </div>
+			</form>
+        
+        <div class=" flex items-center  justify-between p-4  rounded-lg bg-white shadow-indigo-50 shadow-md m-5">
+        
+	        
+	        
+	        <table class="w-full text-sm text-left text-gray-500 dark:text-black">
+	          	<thead>
+	          		<th scope="row">Name</th>
+	          		<th scope="row">Price</th>
+	          		<th scope="row">Category</th>
+	          		<th scope="row">Provider</th>
+	          		<th scope="row">Buy Service</th>
+	          	</thead>
+	          	<tbody>
+	          		<tr th:each="l: ${list}" th:field="${l}">
+	          			<td class="name" th:text="${l.name}"></td>
+	          			<td th:text="${l.price}"></td>
+	          			<td th:text="${l.categoryid}"> </td>
+	          			 <!-- <td th:text="${l.categoryid}"></td> -->
+	          			<td th:text="${l.serviceproviderid}"></td>
+	          			
+	          			<td> <a th:href="@{/buyservice}" class="buyservice" ><i class="fa-regular fa-square-plus"></i></a></td> <!--  lezem ; th:href tkoun: @{/buyservice/{id}(id=${l.id})} -->
+	          		</tr>       	
+	          		
+	          		
+
+
+	            </tbody>
+	          </table>
+        </div>
+</body>
+</html>

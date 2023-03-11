@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head xmlns:th="http://www.thymeleaf.org">
+<meta charset="ISO-8859-1">
+<title>Admin</title>
+<link rel="stylesheet" href="/css/main.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+</head>
+<body>
+<div th:replace="./fragments/navbar"></div>
+
+<h1> Admin  </h1>
+
+
+<!-- component -->
+<!-- component -->
+<section class="text-gray-600 body-font bg-gray-50 h-screen flex justify-center items-center">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="flex flex-wrap -m-4 text-center">
+      <div class="p-4 sm:w-1/2 lg:w-1/3 w-full hover:scale-105 duration-500">
+        <div class=" flex items-center  justify-between p-4  rounded-lg bg-white shadow-indigo-50 shadow-md">
+          <div>
+            <h2 class="text-gray-900 text-lg font-bold">Connect A Bank</h2>
+            <a th:href="@{/connectBank}"> <button class="text-sm mt-6 px-4 py-2 bg-yellow-400 text-white rounded-lg  tracking-wider hover:bg-yellow-300 outline-none">Connect</button></a>
+          </div>
+          <div
+            class="bg-gradient-to-tr from-yellow-500 to-yellow-400 w-32 h-32  rounded-full shadow-2xl shadow-yellow-400 border-white  border-dashed border-2  flex justify-center items-center ">
+            <div>
+              	<i class="fa-solid fa-3x fa-building-columns"></i>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="p-4 sm:w-1/2 lg:w-1/3 w-full hover:scale-105 duration-500">
+        <div class=" flex items-center  justify-between p-4  rounded-lg bg-white shadow-indigo-50 shadow-md">
+          <div>
+            <h2 class="text-gray-900 text-lg font-bold">Create a service</h2>
+           
+            <a th:href="@{/addtheservice}"> <button class="text-sm mt-6 px-4 py-2 bg-orange-400  text-white rounded-lg  tracking-wider hover:bg-orange-500 outline-none">Create</button></a>
+          </div>
+          <div
+            class="bg-gradient-to-tr from-orange-500 to-orange-400 w-32 h-32  rounded-full shadow-2xl shadow-orange-400 border-white  border-dashed border-2  flex justify-center items-center ">
+            <div>
+            <i class="fa-solid fa-3x fa-shop"></i>
+              
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="p-4 sm:w-1/2 lg:w-1/3 w-full hover:scale-105 duration-500">
+        <div class=" flex items-center  justify-between p-4  rounded-lg bg-white shadow-indigo-50 shadow-md">
+          <div>
+            <h2 class="text-gray-900 text-lg font-bold">Already Added Services</h2>
+            <a th:href="@{/aservices}"><button class="text-sm mt-6 px-4 py-2 bg-red-400  text-white rounded-lg  tracking-wider hover:bg-red-500 outline-none">Show Services</button></a>
+          </div>
+          <div
+            class="bg-gradient-to-tr from-red-500 to-red-400 w-32 h-32  rounded-full shadow-2xl shadow-red-400 border-white  border-dashed border-2  flex justify-center items-center ">
+            <div>
+              <i class="fa-brands fa-3x fa-bitcoin"></i>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="p-4 sm:w-1/2 lg:w-1/3 w-full hover:scale-105 duration-500">
+        <div class=" flex items-center  justify-between p-4  rounded-lg bg-white shadow-indigo-50 shadow-md">
+          <div>
+            <h2 class="text-gray-900 text-lg font-bold">View Connected Banks</h2>
+            <a th:href="@{/showBank}"><button class="text-sm mt-6 px-4 py-2 bg-yellow-400  text-white rounded-lg  tracking-wider hover:bg-yellow-500 outline-none">View</button> </a>
+          </div>
+          <div
+            class="bg-gradient-to-tr from-yellow-500 to-yellow-500 w-32 h-32  rounded-full shadow-2xl shadow-yellow-400 border-white  border-dashed border-2  flex justify-center items-center ">
+            <div>
+              <i class="fa-solid fa-3x fa-building-columns"></i>
+            </div>
+          </div>
+        </div>
+
+      </div>
+            <div class="p-4 sm:w-1/2 lg:w-1/3 w-full hover:scale-105 duration-500">
+        <div class=" flex items-center  justify-between p-4  rounded-lg bg-white shadow-indigo-50 shadow-md">
+          <div>
+            <h2 class="text-gray-900 text-lg font-bold">Add Service Provider</h2>
+            <a th:href="@{/addserviceproviderform}"><button class="text-sm mt-6 px-4 py-2 bg-orange-400  text-white rounded-lg  tracking-wider hover:bg-orange-500 outline-none">View</button> </a>
+          </div>
+          <div
+            class="bg-gradient-to-tr from-orange-500 to-orange-400 w-32 h-32  rounded-full shadow-2xl shadow-orange-400 border-white  border-dashed border-2  flex justify-center items-center ">
+            <div>
+             <i class="fa-solid fa-3x fa-shop"></i>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="p-4 sm:w-1/2 lg:w-1/3 w-full hover:scale-105 duration-500">
+        <div class=" flex items-center  justify-between p-4  rounded-lg bg-white shadow-indigo-50 shadow-md">
+          <div>
+            <h2 class="text-gray-900 text-lg font-bold">Crypto Transactions</h2>
+            <button class="text-sm mt-6 px-4 py-2 bg-red-400 text-white rounded-lg  tracking-wider hover:bg-red-500 outline-none">View</button>
+          </div>
+          <div
+			class="bg-gradient-to-tr from-red-500 to-red-400 w-32 h-32  rounded-full shadow-2xl shadow-red-400 border-white  border-dashed border-2  flex justify-center items-center "><div>
+              <i class="fa-brands fa-3x fa-bitcoin"></i>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      
+    </div>
+</section>
+
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Homepage</title>
+<link rel="stylesheet" href="/css/main.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+     <script src=
+"https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+     <script type="text/javascript">
+     $(document).ready(function(){
+     $(".buyservice").click(function() {
+    	    var $row = $(this).closest("tr");    // Find the row
+    	   var $text = $row.find(".sellername").text(); // Find the text
+    	   var $amount = $row.find(".btcamount").text();
+    	   $.cookie("sellername",$text);
+    	    $.cookie("btcamount", $amount);
+    	   // alert( $.cookie("thename") );
+    	    // Let's test it out
+    	//   alert($text);
+    	});
+     });
+    // function setcookie(){
+    	// var 
+    	 //var servicename = $(this).closest("tr").document.getElementById("name").innerHTML;
+    	 //document.cookie = "name="+ servicename;
+     //}
+     </script>
+</head>
+
+<body>
+<div th:replace="./fragments/navbar-user"></div>
+</br>
+ <div class=" flex items-center  justify-between p-4  rounded-lg bg-white shadow-indigo-50 shadow-md m-5">
+        
+<table class="w-full text-sm text-left text-gray-500 dark:text-black">
+	          	<thead>
+	          		<th scope="row"> Seller Name</th>
+	          		<th scope="row">Bitcoin Amount</th>
+	          		
+	          	</thead>
+	          	<hr>
+	          	<tbody>
+	          		<tr th:each="r: ${requests}" th:field="${r}">
+	          		
+	          			<td class="sellername" th:text="${r.selleremail}"></td>
+	          			<td class = "btcamount" th:text="${r.btcamount}"></td>
+	          			
+	          			<td> <a th:href="@{/bitcoinpurchase}" class="buyservice" ><i class="fa-regular fa-square-plus"></i></a></td> <!--  lezem ; th:href tkoun: @{/buyservice/{id}(id=${l.id})} -->
+	          		</tr>       	
+	          		
+	          		
+
+
+	            </tbody>
+	          </table>
+        </div>
+</body>
+</html>

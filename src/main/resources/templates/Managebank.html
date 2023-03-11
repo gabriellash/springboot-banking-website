@@ -1,0 +1,26 @@
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="ISO-8859-1" />
+    <title>Connect Bank</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div th:replace="./fragments/navbar"></div>
+    <section class="grid h-full place-items-center  gradient-form bg-gray-200 md:h-screen ">
+    
+					<ul >
+						<li class="list-disc" th:each="bank: ${bank}"> 
+							<span th:text="${bank.bankName}" /> </span>
+						</li>
+					</ul>
+				<a th:href="@{/connectBank}"> <button type="button" class=" px-6 py-2 border-2 border-green-600 text-green-600 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"> Connect Bank</button> </a>
+		
+		
+	</section>
+
+ <script src="/js/main.js"></script>
+    
+    
+  </body>
+</html>
